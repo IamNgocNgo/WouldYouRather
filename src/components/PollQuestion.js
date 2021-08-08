@@ -1,35 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect} from 'react-router-dom'
 
 class PollQuestion extends Component {
+    handleSubmit= (e) => {
+        e.preventDefault();
+        //ToDo: Redirect or Link to {`/question/${id}`}
+    }
     render(){
         const {authorName, authorAvatar, optionOneText} = this.props
         return(
-           <div className='question'>
-               <div>
+           <div className='poll-question'>
+               <div className='question-author'>
                    <p>{authorName} asks:</p>
                </div>
-               <div>
-                   <img
+               <img
                       src={authorAvatar}
                       alt={`Avatar of ${authorName}`}
                       className='avatar'
-                   />
-                   <div className='question-info'>
-                        <p>Would you rather</p>
-                        <p>...{optionOneText}...</p>
-                   </div>
+                />
+               <div className='question-info'>
+                    <p className='question-title'>Would you rather</p>
+                    <p>...{optionOneText}...</p>
                </div>
+                <button onClick={this.handleSubmit}>View Poll</button>
            </div> 
         )
     }
 }
 
 function mapStateToProps({users, questions}, {id}){
-    //console.log(   `HERE: ${questions[id]}`)
-    //questions? console.log(questions): console.log(' Not yet');
-    const authorId =  questions? questions[id].author : null;
-    //const authorId  =  question.author;
+    const authorId =  questions[id].author ;
     return {
         authorName: users[authorId].name,
         authorAvatar: users[authorId].avatarURL ,
