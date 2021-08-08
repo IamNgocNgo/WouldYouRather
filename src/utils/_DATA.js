@@ -173,6 +173,7 @@ let users = {
   
   export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
     return new Promise((res, rej) => {
+        console.log(`ANSWER NOW: ${answer}`)
       setTimeout(() => {
         users = {
           ...users,

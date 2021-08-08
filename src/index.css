@@ -26,6 +26,13 @@ code {
     cursor: pointer;
 }
 
+.question-author {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-weight: bold;
+    border: 1px solid #dad7d7;
+}
+
 .avatar {
     height: 70px;
     border-radius: 35px;
@@ -35,14 +42,12 @@ code {
     
 }
 
-.question-author {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    font-weight: bold;
-    border: 1px solid #dad7d7;
-}
-
 .question-title {
     font-size: 15px;
     font-weight: bold
+}
+
+.question-option{
+    grid-row-start: 2;
+    grid-row-end: 4;
 }

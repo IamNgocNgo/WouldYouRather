@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Home from './Home'
 import LoadingBar from 'react-redux-loading'
 import PollQuestion from './PollQuestion';
+import UnansweredQuestion from './UnansweredQuestion';
 
 class App extends Component {
     componentDidMount() {
@@ -14,7 +15,7 @@ class App extends Component {
             <div>
                 <LoadingBar/>
                 {this.props.loading === true? null :
-                <PollQuestion id="6ni6ok3ym7mf1p33lnez"/> }
+                <UnansweredQuestion id="6ni6ok3ym7mf1p33lnez"/> }
             </div>
         )
     }
