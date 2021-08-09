@@ -6,6 +6,7 @@ import LoadingBar from 'react-redux-loading'
 import PollQuestion from './PollQuestion';
 import UnansweredQuestion from './UnansweredQuestion';
 import ResultQuestion from './ResultQuestion';
+import User from './User'
 
 class App extends Component {
     componentDidMount() {
@@ -16,7 +17,7 @@ class App extends Component {
             <div>
                 <LoadingBar/>
                 {this.props.loading === true? null :
-                <ResultQuestion id="6ni6ok3ym7mf1p33lnez"/> }
+                <User id='tylermcginnis' rank={1}/> }
             </div>
         )
     }
