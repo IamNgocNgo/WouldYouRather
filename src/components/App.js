@@ -16,7 +16,7 @@ class App extends Component {
             <div>
                 <LoadingBar/>
                 {this.props.loading === true? null :
-                <ResultQuestion id="6ni6ok3ym7mf1p33lnez"/> }
+                <UnansweredQuestion id="6ni6ok3ym7mf1p33lnez"/> }
             </div>
         )
     }

@@ -17,7 +17,7 @@ class UnansweredQuestion extends Component {
         const {dispatch, authedUser, id} = this.props;
         const answer = this.state.answer;
         //console.log(`ANSWER NOW: ${answer}`)
-        dispatch(handleAddQuestionAnswer({authedUser, id, answer}));
+        dispatch(handleAddQuestionAnswer(authedUser, id, answer));
     }
     render(){
         const {authorName, authorAvatar, optionOneText, optionTwoText} = this.props
