@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { saveQuestionAnswer } from "../utils/api";
 import {handleAddQuestionAnswer} from "../actions/questions"
 
 class UnansweredQuestion extends Component {

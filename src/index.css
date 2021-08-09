@@ -115,3 +115,34 @@ code {
     border-radius: 3px;
     cursor: pointer;  
 }
+
+.new-question {
+    width: 500px;
+    height: 350px;  
+    padding: 0px;  
+    margin: 0 auto;
+    border: 1px solid #dad7d7;
+    border-radius: 3px;
+    cursor: pointer; 
+}
+
+.new-question-title {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    color: blue;
+}
+
+.new-question-input {
+    width: 450px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+.submit-button {
+    width: 460px;
+    height: 30px;
+    margin: 20px;
+    margin-top: 20px;
+    background-color: rgb(208, 208, 245);
+}

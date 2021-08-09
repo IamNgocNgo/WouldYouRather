@@ -7,6 +7,7 @@ import PollQuestion from './PollQuestion';
 import UnansweredQuestion from './UnansweredQuestion';
 import ResultQuestion from './ResultQuestion';
 import User from './User'
+import NewQuestion from './NewQuestion';
 
 class App extends Component {
     componentDidMount() {
@@ -17,7 +18,8 @@ class App extends Component {
             <div>
                 <LoadingBar/>
                 {this.props.loading === true? null :
-                <User id='tylermcginnis' rank={1}/> }
+                <NewQuestion/>}
+                {/*<User id='tylermcginnis' rank={1}/> */}
             </div>
         )
     }
