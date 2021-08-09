@@ -30,9 +30,9 @@ function addQuestionAnswer(authedUser, qid, answer){
 export function handleAddQuestionAnswer(authedUser, qid, answer){
     return (dispatch) => {
         dispatch(showLoading())
-        dispatch(addQuestionAnswer(authedUser, qid, answer))
-
+        
         return saveQuestionAnswer({ authedUser, qid, answer})
+        .then(() => dispatch(addQuestionAnswer(authedUser, qid, answer)))
         .then(() => dispatch(hideLoading()))
     }
 }
