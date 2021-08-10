@@ -9,6 +9,8 @@ import ResultQuestion from './ResultQuestion'
 import User from './User'
 import NewQuestion from './NewQuestion'
 import SignIn from './SignIn';
+import Navigation from './Navigation'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class App extends Component {
     componentDidMount() {
@@ -16,12 +18,19 @@ class App extends Component {
     }
     render(){
         return (
-            <div>
-                <LoadingBar/>
-                {this.props.loading === true? null :
-                <SignIn/>}
-                {/*<User id='tylermcginnis' rank={1}/> */}
-            </div>
+            <Router>
+                <div>
+                    <LoadingBar/>
+                    {this.props.loading === true? null :
+                        <div>
+                            <Navigation/>
+                        </div>}
+                    {/*
+                    <Route path='/signin' component={SignIn}/>
+                    <Route path='/home' component={Home}/>
+                    <User id='tylermcginnis' rank={1}/> */}
+                </div>
+            </Router>
         )
     }
 }
