@@ -22,12 +22,19 @@ class App extends Component {
             <Router>
                 <div>
                     <LoadingBar/>
+                    {this.props.loadingUsers === true? null :
+                        <div>
+                            <Navigation/>
+                            <Route path='/' exact component={SignIn}/>
+                            <Route path='/alert' component={Alert}/>
+                        </div>
+                    }
                     {this.props.loading === true? null :
                         <div>
-                            <Alert/>
+                            <Route path='/home' component={Home}/>
+                            <Route path='/add' component={NewQuestion}/>
                         </div>}
                     {/*
-                    <Route path='/signin' component={SignIn}/>
                     <Route path='/home' component={Home}/>
                     <User id='tylermcginnis' rank={1}/> */}
                 </div>
@@ -36,9 +43,10 @@ class App extends Component {
     }
 }
 
-function mapStateToProps ({ questions }) {
+function mapStateToProps ({ users, authedUser }) {
     return {
-      loading: questions === null
+      loading: authedUser === null,
+      loadingUsers: users === null
     }
   }
 

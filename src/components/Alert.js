@@ -11,7 +11,7 @@ class Alert extends Component {
     }
     render(){
         if (this.state.toSignIn === true){
-            return  <Redirect to='/signin'/>
+            return  <Redirect to='/'/>
         }
         return(
             <div className='alert'>

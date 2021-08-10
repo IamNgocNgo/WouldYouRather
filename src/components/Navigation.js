@@ -14,7 +14,7 @@ class Navigation extends Component {
     }
     render() {
         if (this.state.toSignIn === true){
-            return <Redirect to='/signin'/>
+            return <Redirect to='/'/>
         }
         if (this.props.logOut === true) {
             return(
@@ -78,7 +78,6 @@ class Navigation extends Component {
 }
 
 function mapStateToProps({authedUser, users}) {
-    console.log("HERE")
     return({
         logOut: authedUser === null,
         name: authedUser? users[authedUser].name: null,
