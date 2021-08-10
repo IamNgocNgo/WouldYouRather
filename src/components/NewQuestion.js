@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component {
+    state = {
+        toHome: false
+    }
     handleSubmit = (e) => {
         e.preventDefault()
         const { author, dispatch } = this.props
         const optionOneText = this.optionOneText.value
         const optionTwoText = this.optionTwoText.value
         dispatch(handleAddQuestion({ optionOneText, optionTwoText, author}))
+        this.setState({toHome: true})
     }
     render(){
+        if (this.state.toHome){
+            return(
+                <Redirect to='/home'/>
+            )
+        }
         return(
             <div className='new-question'>
                 <p className='new-question-title'>Create New Question</p>
