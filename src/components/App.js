@@ -11,6 +11,7 @@ import NewQuestion from './NewQuestion'
 import SignIn from './SignIn';
 import Navigation from './Navigation'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Alert from './Alert'
 
 class App extends Component {
     componentDidMount() {
@@ -23,7 +24,7 @@ class App extends Component {
                     <LoadingBar/>
                     {this.props.loading === true? null :
                         <div>
-                            <Navigation/>
+                            <Alert/>
                         </div>}
                     {/*
                     <Route path='/signin' component={SignIn}/>

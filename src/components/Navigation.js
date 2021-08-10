@@ -14,7 +14,7 @@ class Navigation extends Component {
     }
     render() {
         if (this.state.toSignIn === true){
-            <Redirect to='/signin'/>
+            return <Redirect to='/signin'/>
         }
         if (this.props.logOut === true) {
             return(
