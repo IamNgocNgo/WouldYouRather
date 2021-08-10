@@ -12,6 +12,7 @@ import SignIn from './SignIn';
 import Navigation from './Navigation'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Alert from './Alert'
+import LeaderBoard from './LeaderBoard';
 
 class App extends Component {
     componentDidMount() {
@@ -33,6 +34,7 @@ class App extends Component {
                         <div>
                             <Route path='/home' component={Home}/>
                             <Route path='/add' component={NewQuestion}/>
+                            <Route path='/leaderboard' component={LeaderBoard}/>
                         </div>}
                     {/*
                     <Route path='/home' component={Home}/>
