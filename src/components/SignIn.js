@@ -5,7 +5,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class SignIn extends Component {
     state = {
-        authedUser:'',
+        authedUser: "",
         toHome: false
     }
     onValueChange = (event) => {
@@ -17,19 +17,35 @@ class SignIn extends Component {
         this.props.dispatch(setAuthedUser(this.state.authedUser))
         this.setState({toHome: true})
     }
+    componentDidUpdate(){
+        if (this.state.authedUser === "" && (this.props.users !== undefined)){
+            this.setState({authedUser: Object.keys(this.props.users)[0]})
+        }
+    }
     render() {
         const {users} = this.props
         const uids = Object.keys(users)
+
+        /*if (this.state.authedUser === ""){
+            this.setState({authedUser: uids[0]})
+        }*/
+        console.log(`HERE ${this.state.authedUser}`)
+
         if (this.state.toHome === true){
             return <Redirect to='home'/>
         }
+
         return(
             <div className='sign-in'>
                 <p className='sign-in-title'>Welcome to Would You Rather App!</p>
                 <p style={{textAlign:'center'}}>Please sign in to continue</p>
                 <p className='sign-in-title'>Sign In</p>
                 <form onSubmit={this.handleSubmit}>
-                    <select className='sign-in-menu' onChange={this.onValueChange}>
+                    <select 
+                        value={this.state.authedUser} 
+                        className='sign-in-menu' 
+                        onChange={this.onValueChange
+                    }>
                         <option value='none' disabled>Select User</option>
                         {uids.map((uid)=><option key={uid} value={uid}>{users[uid].name}</option>)}
                     </select>
