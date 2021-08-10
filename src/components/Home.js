@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PollQuestion from './PollQuestion';
 
 class Home extends Component {
     state = {
@@ -21,33 +22,41 @@ class Home extends Component {
     render(){
         const {answeredQuestionIds, unansweredQuestionIds} = this.props
         return(
-            <div>
-                <button className='unanswered-question-button'
-                        onClick={this.handleUnansweredMode}>
+            <div className='home-button'>
+                <button onClick={this.handleUnansweredMode}
+                        style={{color: this.state.defaultMode? 'blue':'black'}}>
                             Unanswered Questions
                 </button>
 
-                <button className='answered-question-button'
-                        onClick={this.handleAnsweredMode}>
+                <button onClick={this.handleAnsweredMode}
+                        style={{color: this.state.defaultMode? 'black':'blue'}}>
                             Answered Questions
                 </button>
 
                 {this.state.defaultMode? 
                     <div> 
-                        <p>Unanswered Question List</p>
-                            <ul className='home-list'>
-                                {unansweredQuestionIds.map((id) => (
-                                    <p>{id}</p>
-                                ))}
-                            </ul>
-                    </div> : 
+                        <ul className='home-list'>
+                            {(unansweredQuestionIds.length === 0)?
+                                <p>You have answered all the question.
+                                    Please create new questions or come back later.
+                                </p>
+                                :
+                                (unansweredQuestionIds.map((id) => (
+                                    <li key={id}><PollQuestion id={id}/></li>
+                                )))
+                            }
+                        </ul>
+                    </div> 
+                    : 
                     <div>
-                        <p>Answered Question List</p>
-                            <ul className='home-list'>
-                                {answeredQuestionIds.map((id) => (
-                                    <p>{id}</p>
-                                ))}
-                            </ul>
+                        <ul className='home-list'>
+                            {(answeredQuestionIds.length === 0)? 
+                                <p>You haven't answered any question yet.</p>
+                                : 
+                                (answeredQuestionIds.map((id) => (
+                                    <li key={id}><PollQuestion id={id}/></li>)))
+                            }
+                        </ul>
                     </div>
                 }
             </div>
