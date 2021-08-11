@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class PollQuestion extends Component {
+    state = {
+        toInfo: false
+    }
     handleSubmit= (e) => {
         e.preventDefault();
-        //ToDo: Redirect or Link to {`/question/${id}`}
+        this.props.history.push(`/questions/${this.props.id}`)
     }
     render(){
         const {authorName, authorAvatar, optionOneText} = this.props
@@ -37,4 +41,4 @@ function mapStateToProps({users, questions}, {id}){
     }
 }
 
-export default connect(mapStateToProps)(PollQuestion)
+export default withRouter(connect(mapStateToProps)(PollQuestion))

@@ -13,6 +13,7 @@ import Navigation from './Navigation'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Alert from './Alert'
 import LeaderBoard from './LeaderBoard';
+import QuestionInfo from './QuestionInfo';
 
 class App extends Component {
     componentDidMount() {
@@ -35,6 +36,7 @@ class App extends Component {
                             <Route path='/home' component={Home}/>
                             <Route path='/add' component={NewQuestion}/>
                             <Route path='/leaderboard' component={LeaderBoard}/>
+                            <Route path='/questions/:question_id' component={QuestionInfo}/>
                         </div>}
                     {/*
                     <Route path='/home' component={Home}/>
