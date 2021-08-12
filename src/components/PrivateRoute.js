@@ -1,12 +1,11 @@
-import React, { useContext, createContext, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect } from 'react-router-dom'
-//import { isSignIn } from './App'
 
-
-function PrivateRoute ({ children, ...rest}, props) {
+function PrivateRoute (props) {
+    const { children, ...rest} = props
     const isSignIn = props.isSignIn
-    console.log(`isSignIn = ${isSignIn}`)
+    
     return (
         <Route {...rest} render={ () => {
             return isSignIn === true ?
@@ -17,7 +16,6 @@ function PrivateRoute ({ children, ...rest}, props) {
 }
 
 function mapStateToProps({authedUser}) {
-    console.log(`isSignIn in MapState = ${authedUser !== null}`)
     return({
         isSignIn: authedUser !== null
     })

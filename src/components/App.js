@@ -94,27 +94,9 @@ class App extends Component {
         )
     }*/
 }
-
-/*function PrivateRoute ({ children, ...rest}) {
-    const isSignIn = false
-    console.log(`HERE: ${isSignIn}`)
-    return (
-
-        // Show the component only when the user is logged in
-        // Otherwise, redirect the user to /signin page
-        <Route {...rest} render={ () => {
-            return isSignIn === true ?
-                children
-            : <Redirect to="/signin" />
-        }} />
-    )
-}*/
-
-function mapStateToProps ({ users, authedUser, loadingBar }) {
+function mapStateToProps ({ loadingBar }) {
     return {
       isLoadingDone: loadingBar.default === 0,
-      loadingUsers: users === null,
-      authedUser
     }
   }
 
