@@ -5,7 +5,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class SignIn extends Component {
     state = {
-        authedUser: "",
+        authedUser: Object.keys(users)[0],
         toHome: false
     }
     onValueChange = (event) => {
@@ -17,19 +17,10 @@ class SignIn extends Component {
         this.props.dispatch(setAuthedUser(this.state.authedUser))
         this.setState({toHome: true})
     }
-    /*componentDidUpdate(){
-        if (this.state.authedUser === "" && (this.props.users !== undefined)){
-            this.setState({authedUser: Object.keys(this.props.users)[0]})
-        }
-    }*/
+    
     render() {
         const {users} = this.props
         const uids = Object.keys(users)
-
-        /*if (this.state.authedUser === ""){
-            this.setState({authedUser: uids[0]})
-        }*/
-        console.log(`HERE ToHome ${this.state.toHome}`)
 
         if (this.state.toHome === true){
             return <Redirect to='/home'/>
