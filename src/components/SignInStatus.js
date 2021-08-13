@@ -13,7 +13,7 @@ class SignInStatus extends Component {
         this.props.dispatch(setAuthedUser(null))
         this.setState({toSignIn: true})
     }
-    
+
     render() {
         if (this.state.toSignIn === true){
             return <Redirect to='/signin'/>
