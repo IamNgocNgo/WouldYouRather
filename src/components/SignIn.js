@@ -5,7 +5,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class SignIn extends Component {
     state = {
-        authedUser: Object.keys(users)[0],
+        authedUser: Object.keys(this.props.users)[0],
         toHome: false
     }
     onValueChange = (event) => {

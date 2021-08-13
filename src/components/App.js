@@ -21,6 +21,7 @@ import Alert from './Alert'
 import LeaderBoard from './LeaderBoard';
 import QuestionInfo from './QuestionInfo';
 import PrivateRoute from './PrivateRoute'
+import SignInStatus from './SignInStatus';
 
 class App extends Component {
     componentDidMount() {
@@ -31,19 +32,18 @@ class App extends Component {
                 <Router>
                     <div>
                         <LoadingBar/>
-                        {/*<AuthButton />*/}
 
-                    <ul>
-                        <li>
-                            <Link to="/home">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/add">New Question</Link>
-                        </li>
-                        <li>
-                            <Link to="/leaderboard">LeaderBoard</Link>
-                        </li>
-                    </ul>
+                        <ul>
+                            <li>
+                                <Link to="/home">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/add">New Question</Link>
+                            </li>
+                            <li>
+                                <Link to="/leaderboard">LeaderBoard</Link>
+                            </li>
+                        </ul>
 
                         <Route path="/signin">
                             <SignIn />
@@ -51,6 +51,7 @@ class App extends Component {
                     
                     {this.props.isLoadingDone?
                     <div>
+                        {this.props.isSignIn === true? <SignInStatus/> : null}
                         <PrivateRoute path='/home'>
                             <Home/>
                         </PrivateRoute>
@@ -94,9 +95,10 @@ class App extends Component {
         )
     }*/
 }
-function mapStateToProps ({ loadingBar }) {
+function mapStateToProps ({ authedUser,loadingBar }) {
     return {
       isLoadingDone: loadingBar.default === 0,
+      isSignIn: authedUser !== null
     }
   }
 
