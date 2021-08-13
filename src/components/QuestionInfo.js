@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ResultQuestion from './ResultQuestion'
 import UnansweredQuestion from './UnansweredQuestion'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class QuestionInfo extends Component {
     render(){
@@ -18,7 +19,7 @@ class QuestionInfo extends Component {
 }
 
 function mapStateToProps({authedUser, users}, props){
-    const {question_id} = props.match.params
+    const {question_id} = props? props.match.params: null
     const answers = users[authedUser].answers
     return({
         question_id,
@@ -26,4 +27,4 @@ function mapStateToProps({authedUser, users}, props){
     })
 }
 
-export default connect(mapStateToProps)(QuestionInfo)
+export default withRouter(connect(mapStateToProps)(QuestionInfo))
