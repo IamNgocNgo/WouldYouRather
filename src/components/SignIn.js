@@ -8,10 +8,12 @@ class SignIn extends Component {
         authedUser: Object.keys(this.props.users)[0],
         toHome: false
     }
+
     onValueChange = (event) => {
         event.preventDefault()
         this.setState({authedUser: event.target.value})
     }
+
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.dispatch(setAuthedUser(this.state.authedUser))

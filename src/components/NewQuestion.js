@@ -7,6 +7,7 @@ class NewQuestion extends Component {
     state = {
         toHome: false
     }
+
     handleSubmit = (e) => {
         e.preventDefault()
         const { author, dispatch } = this.props
@@ -15,6 +16,7 @@ class NewQuestion extends Component {
         dispatch(handleAddQuestion({ optionOneText, optionTwoText, author}))
         this.setState({toHome: true})
     }
+
     render(){
         if (this.state.toHome){
             return(

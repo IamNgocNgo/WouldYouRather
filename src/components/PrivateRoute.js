@@ -10,7 +10,7 @@ function PrivateRoute (props) {
         <Route {...rest} render={ () => {
             return isSignIn === true ?
                 children
-            : <Redirect to="/signin" />
+            : <Redirect to="/alert" />
         }} />
     )
 }

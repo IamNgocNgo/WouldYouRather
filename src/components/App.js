@@ -27,32 +27,35 @@ class App extends Component {
                     <Route path="/signin">
                         <SignIn />
                     </Route>
+
+                    <Route path="/alert">
+                        <Alert />
+                    </Route>
                 
-                    {this.props.isLoadingDone?
-                        <div>
-                            {this.props.isSignIn === true? <SignInStatus/> : null}
-                            <PrivateRoute path='/home'>
-                                <Home/>
-                            </PrivateRoute>
-                            <PrivateRoute path="/add">
-                                <NewQuestion />
-                            </PrivateRoute>
-                            <PrivateRoute path="/leaderboard">
-                                <LeaderBoard />
-                            </PrivateRoute>
-                            <PrivateRoute path="/questions/:question_id">
-                                <QuestionInfo />
-                            </PrivateRoute>
-                        </div>
-                    :null}
+                    
+                    <div>
+                        {this.props.isSignIn === true? <SignInStatus/> : null}
+                        <PrivateRoute path='/home'>
+                            <Home/>
+                        </PrivateRoute>
+                        <PrivateRoute path="/add">
+                            <NewQuestion />
+                        </PrivateRoute>
+                        <PrivateRoute path="/leaderboard">
+                            <LeaderBoard />
+                        </PrivateRoute>
+                        <PrivateRoute path="/questions/:question_id">
+                            <QuestionInfo />
+                        </PrivateRoute>
+                    </div>      
                 </div>
             </Router>
         )
     }
 }
-function mapStateToProps ({ authedUser,loadingBar }) {
+
+function mapStateToProps ({ authedUser }) {
     return {
-      isLoadingDone: loadingBar.default === 0,
       isSignIn: authedUser !== null
     }
   }
