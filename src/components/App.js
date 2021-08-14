@@ -12,6 +12,7 @@ import LeaderBoard from './LeaderBoard';
 import QuestionInfo from './QuestionInfo';
 import PrivateRoute from './PrivateRoute'
 import SignInStatus from './SignInStatus';
+import PageNotFound from './PageNotFound';
 
 class App extends Component {
 
@@ -37,6 +38,9 @@ class App extends Component {
                     </Route>
                     <Route path="/alert">
                         <Alert />
+                    </Route>
+                    <Route path="/404">
+                        <PageNotFound />
                     </Route>
                     
                     <div>

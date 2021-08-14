@@ -207,3 +207,9 @@ li {
 .home-button {
     text-align: center;
 }
+
+.page-not-found {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
