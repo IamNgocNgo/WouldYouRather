@@ -6,17 +6,20 @@ class UnansweredQuestion extends Component {
     state ={
         answer : "optionOne"
     }
+
     onValueChange = (e) => {
         this.setState({
             answer: e.target.value
         })
     }
+
     handleSubmit = (e) => {
         e.preventDefault();
         const {dispatch, authedUser, id} = this.props;
         const answer = this.state.answer;
         dispatch(handleAddQuestionAnswer(authedUser, id, answer));
     }
+    
     render(){
         const {authorName, authorAvatar, optionOneText, optionTwoText} = this.props
         return(

@@ -199,9 +199,10 @@ li {
 .alert {
     width: 300px;
     height: 100px;
-    margin: 20px;
+    margin-left: 300px;
     border: 1px solid #dad7d7;
     text-align: center;
+    background-color: cornsilk;
 }
 
 .home-button {

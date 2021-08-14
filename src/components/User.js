@@ -7,6 +7,7 @@ class  User extends Component {
         const numAnswered = Object.keys(user.answers).length
         const numCreated = user.questions.length
         const score = numAnswered + numCreated
+        
         return(
             <div className='user'>
                 <p style={{ fontSize: "15px", color: 'blue'}}>Rank #{rank}</p>

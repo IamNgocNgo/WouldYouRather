@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import User from './User'
+
 class LeaderBoard extends Component {
     render(){
         return(

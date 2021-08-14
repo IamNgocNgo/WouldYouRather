@@ -33,7 +33,7 @@ class SignInStatus extends Component {
                     </li>
                 </ul>
             </div>
-    )
+        )
     }
 }
 

@@ -6,6 +6,7 @@ class Home extends Component {
     state = {
         defaultMode: true
     }
+    
     handleUnansweredMode = (e) => {
         e.preventDefault();
         this.setState(() => ({
@@ -19,6 +20,7 @@ class Home extends Component {
             defaultMode: false
         }))
     }
+
     render(){
         const {answeredQuestionIds, unansweredQuestionIds} = this.props
         return(

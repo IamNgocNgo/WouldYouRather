@@ -23,6 +23,7 @@ class NewQuestion extends Component {
                 <Redirect to='/home'/>
             )
         }
+        
         return(
             <div className='new-question'>
                 <p className='new-question-title'>Create New Question</p>
