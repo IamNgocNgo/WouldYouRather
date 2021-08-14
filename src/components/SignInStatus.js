@@ -1,24 +1,21 @@
 import React, { Component } from 'react' 
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 
 class SignInStatus extends Component {
-    state = {
-        toSignIn: false
-    }
 
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.dispatch(setAuthedUser(null))
-        this.setState({toSignIn: true})
+        // Do not use Redirect bc if so, I need setState({toSignIn: true}) here, 
+        // If true, on render, return Redirect
+        // However, in App.js, I set this.props.isSignIn===true?.
+        // So after click Submit, isSignIn===false, SignInStatus Unmount => can't Redirect.
+        this.props.history.push('/')
     }
 
     render() {
-        if (this.state.toSignIn === true){
-            return <Redirect to='/signin'/>
-        }
-
         const {name, avatar} = this.props
         return(
             <div className='nav'>
@@ -47,4 +44,4 @@ function mapStateToProps({authedUser, users}) {
     })
 }
 
-export default connect(mapStateToProps) (SignInStatus)
+export default withRouter(connect(mapStateToProps) (SignInStatus))
