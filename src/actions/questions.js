@@ -46,8 +46,3 @@ export function handleAddQuestionAnswer(authedUser, qid, answer){
         .then(() => dispatch(hideLoading()))
     }
 }
-/*function handleAddQuestion(question){
-    return (dispatch, getState) => {
-
-    }
-}*/
