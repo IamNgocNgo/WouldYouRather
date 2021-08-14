@@ -1,17 +1,19 @@
-import React, {Component} from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { Component } from 'react'
+import { Redirect, withRouter } from 'react-router-dom'
 
 class Alert extends Component {
     state = {
         toSignIn: false
     }
+
     handleSubmit = (e) => {
         e.preventDefault()
         this.setState({toSignIn: true})
     }
+    
     render(){
         if (this.state.toSignIn === true){
-            return  <Redirect to='/signin'/>
+            return  <Redirect to={{pathname:"/signin", state: {from: this.props.location.state.from}}}/>
         }
         return(
             <div className='alert'>
@@ -22,4 +24,4 @@ class Alert extends Component {
     }
 }
 
-export default Alert
+export default withRouter(Alert)

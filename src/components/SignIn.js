@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
 
 class SignIn extends Component {
@@ -25,7 +25,7 @@ class SignIn extends Component {
         const uids = Object.keys(users)
 
         if (this.state.toHome === true){
-            return <Redirect to='/home'/>
+            return <Redirect to={this.props.state?.from ||'/home'}/>
         }
 
         return(
@@ -49,9 +49,10 @@ class SignIn extends Component {
     }
 }
 
-function mapStateToProps({users}){
+function mapStateToProps({users}, props){
     return {
-        users
+        users,
+        state: props.location.state
     }
 }
-export default connect(mapStateToProps)(SignIn)
+export default withRouter(connect(mapStateToProps)(SignIn))
