@@ -9,3 +9,5 @@ After sign in, users will be able to answer questions, see which questions they 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
+## Author: Ngoc Ngo
+
